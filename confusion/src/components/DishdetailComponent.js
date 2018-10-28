@@ -4,10 +4,12 @@ import { Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap';
 class Dishdetail extends Component {
 
     renderComments(comments) {
+
         if (comments == null) {
             return (<div></div>)
         }
-        const cmnts = comments.map(comment => {
+
+        const dishComment = comments.map(comment => {
             return (
                 <li key={comment.id}>
                     <p>{comment.comment}</p>
@@ -22,13 +24,13 @@ class Dishdetail extends Component {
                 </li>
             )
         })
+
         return (
             <div className='col-12 col-md-5 m-1'>
                 <h4> Comments </h4>
                 <ul className='list-unstyled'>
-                    {cmnts}
+                    {dishComment}
                 </ul>
-
             </div>
         )
     }
@@ -40,8 +42,8 @@ class Dishdetail extends Component {
                     <Card>
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
                         <CardBody>
-                            <CardTitle>{dish.name}</CardTitle>
-                            <CardText>{dish.description}</CardText>
+                            <CardTitle> {dish.name} </CardTitle>
+                            <CardText> {dish.description} </CardText>
                         </CardBody>
                     </Card>
                 </div>
@@ -54,11 +56,14 @@ class Dishdetail extends Component {
 
     render() {
         const dish = this.props.dish
+
         if (dish == null) {
             return (<div></div>)
         }
+
         const dishItem = this.renderDish(dish)
         const commentItem = this.renderComments(dish.comments)
+        
         return (
             <div className='row'>
                 {dishItem}
