@@ -8,7 +8,7 @@ class Header extends Component{
         <Navbar dark>
          <div className="container">
           <NavbarBrand href="/">
-          Supriya
+          React Demo
           </NavbarBrand>
          </div>
         </Navbar>
