@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Navbar, NavbarBrand} from 'reactstrap';
 import Menu from './MenuComponent';
 import Dishdetail from './DishdetailComponent';
+import Header from './HeaderComponent';
 import {DISHES} from '../shared/dishes';
 
 class Main extends Component {
@@ -21,13 +21,7 @@ onDishSelect(dishId){
   render() {
     return (
       <div>
-        <Navbar dark color="primary">
-        <div className="container">
-        <NavbarBrand href="/">
-        Supriya
-        </NavbarBrand>
-        </div>
-        </Navbar>
+       <Header/>
         <Menu dishes={this.state.dishes}
          onClick={(dishId) => this.onDishSelect(dishId)}/>        
        
