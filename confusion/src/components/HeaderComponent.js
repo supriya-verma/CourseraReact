@@ -24,7 +24,7 @@ class Header extends Component{
 
     toggleModal(){
         this.setState({
-            isModelOpen: !this.state.isModelOpen
+            isModalOpen: !this.state.isModalOpen
         });
     }
      render(){
@@ -62,7 +62,7 @@ class Header extends Component{
              </Nav>
              <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <Button outline onClick={this.toggeleModal}>
+                    <Button outline onClick={this.toggleModal}>
                        <span className="fa fa-sign-in fa-lg"></span>Login
                     </Button>
                 </NavItem>
@@ -80,8 +80,8 @@ class Header extends Component{
            </div>
         </div>
         </Jumbotron>
-          <Modal isOpen={this.state.isModelOpen} toggle={this.toggeleModal}>
-             <ModalHeader toggle={this.toggeleModal}>Login</ModalHeader>
+          <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+             <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
              <ModalBody>
 
              </ModalBody>
