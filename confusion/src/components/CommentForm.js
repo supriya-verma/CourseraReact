@@ -64,7 +64,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                            <FormGroup row>
+                        <Row className="form-group"> 
                                 <Label htmlFor="rating" md={12}>Rating</Label>
                                 <Col md={12}>
                                     <Control.select model=".rating" id="rating" name="rating"
@@ -78,8 +78,8 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                                </Control.select>   
                                      
                                 </Col>
-                            </FormGroup>
-                            <FormGroup row>
+                                </Row>
+                        <Row className="form-group">   
                                 <Label htmlFor="name" md={12}>Your Name</Label>
                                 <Col md={12}>
                                     <Control.text model=".name" id="name" name="name"
@@ -100,8 +100,8 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                                         }}
                                     />
                                 </Col>
-                            </FormGroup>
-                            <FormGroup row>
+                                </Row>
+                        <Row className="form-group">   
                                 <Label htmlFor="comment" md={12}>Comment</Label>
                                 <Col md={12}>
                                     <Control.textarea model=".comment" id="comment" name="comment" rows={6}
@@ -109,14 +109,14 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                                         className="form-control"
                                     />
                                 </Col>
-                            </FormGroup>
-                            <FormGroup row>
+                                </Row>
+                        <Row className="form-group">   
                                 <Col md={{ size: 12 }}>
                                     <Button type="submit" color="primary">
                                         Send Feedback
                                     </Button>
                                 </Col>
-                            </FormGroup>
+                            </Row>
                         </LocalForm>
                     </ModalBody>
                 </Modal>
