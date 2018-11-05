@@ -1,6 +1,6 @@
 import React,  { Component } from 'react';
 import { Card, CardImg, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem ,
-     ModalBody, ModalHeader, Modal, Col, Label, FormGroup, Button} from 'reactstrap';
+     ModalBody, ModalHeader, Modal, Row, Col, Label, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
@@ -40,7 +40,7 @@ class CommentForm extends Component {
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                            <FormGroup row>
+                        <Row className="form-group"> 
                                 <Label htmlFor="rating" md={12}>Rating</Label>
                                 <Col md={12}>
                                     <Control.select model=".rating" id="rating" name="rating"
@@ -54,8 +54,8 @@ class CommentForm extends Component {
                                </Control.select>   
                                      
                                 </Col>
-                            </FormGroup>
-                            <FormGroup row>
+                            </Row>
+                            <Row className="form-group"> 
                                 <Label htmlFor="name" md={12}>Your Name</Label>
                                 <Col md={12}>
                                     <Control.text model=".name" id="name" name="name"
@@ -78,8 +78,8 @@ class CommentForm extends Component {
                                         }}
                                     />
                                 </Col>
-                            </FormGroup>
-                            <FormGroup row>
+                                </Row>
+                            <Row className="form-group">
                                 <Label htmlFor="comment" md={12}>Comment</Label>
                                 <Col md={12}>
                                     <Control.textarea model=".comment" id="comment" name="comment" rows={6}
@@ -87,14 +87,14 @@ class CommentForm extends Component {
                                         className="form-control"
                                     />
                                 </Col>
-                            </FormGroup>
-                            <FormGroup row>
+                                </Row>
+                            <Row className="form-group">
                                 <Col md={{ size: 12 }}>
                                     <Button type="submit" color="primary">
                                         Send Feedback
                                     </Button>
                                 </Col>
-                            </FormGroup>
+                                </Row>
                         </LocalForm>
                     </ModalBody>
                 </Modal>

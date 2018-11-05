@@ -1,60 +1,32 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, Label, Col, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import { Control, LocalForm, Errors } from 'react-redux-form';
- class CommentForm extends Component {
+import { ModalBody, ModalHeader, Modal, Row, Col, Label, Button} from 'reactstrap';
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => val && (val.length >= len);
+
+class CommentForm extends Component {
     constructor(props) {
         super(props);
-         this.state = {
-            rating: '',
-            name: '',
-            comment: '',
-            touched: {
-                rating: false,
-                name: false,
-                comment: false
-            },
-            isModalOpen: false
+        this.state={          
+            isModelOpen: false
         };
-         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+      
         this.toggleModal = this.toggleModal.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
      }
-     toggleModal() {
+   
+     toggleModal(){
         this.setState({
             isModalOpen: !this.state.isModalOpen
         });
     }
-     validate(name) {
-         const errors = {
-            name: '',
-        };
-         if (this.state.touched.name && name.length < 3)
-            errors.name = 'First Name should be >= 3 characters';
-        else if (this.state.touched.name && name.length > 16)
-            errors.name = 'First Name should be <= 15 characters';
-        return errors;
-    }
-     handleBlur = (field) => (evt) => {
-        this.setState({
-            touched: { ...this.state.touched, [field]: true },
-        });
-    }
-     handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-         this.setState({
-            [name]: value
-        });
-    }
+
      handleSubmit(event) {
         console.log('Current State is: ' + JSON.stringify(event));
         alert('Current State is: ' + JSON.stringify(event));       
     }
-     render() {
-        const required = (val) => val && val.length;
-        const maxLength = (len) => (val) => !(val) || (val.length <= len);
-        const minLength = (len) => (val) => val && (val.length >= len);
+
+     render() {      
         return (
             <div className="container">
                 <div className="row">
@@ -78,15 +50,17 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                                </Control.select>   
                                      
                                 </Col>
-                                </Row>
-                        <Row className="form-group">   
+                            </Row>
+                            <Row className="form-group"> 
                                 <Label htmlFor="name" md={12}>Your Name</Label>
                                 <Col md={12}>
                                     <Control.text model=".name" id="name" name="name"
-                                        placeholder=""
+                                        placeholder="Your Name"
                                         className="form-control"
                                         validators={{
-                                            required, minLength: minLength(3), maxLength: maxLength(15)
+                                            required,
+                                             minLength: minLength(3),
+                                              maxLength: maxLength(15)
                                         }}
                                     />
                                     <Errors
@@ -101,7 +75,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                                     />
                                 </Col>
                                 </Row>
-                        <Row className="form-group">   
+                            <Row className="form-group">
                                 <Label htmlFor="comment" md={12}>Comment</Label>
                                 <Col md={12}>
                                     <Control.textarea model=".comment" id="comment" name="comment" rows={6}
@@ -110,13 +84,13 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                                     />
                                 </Col>
                                 </Row>
-                        <Row className="form-group">   
+                            <Row className="form-group">
                                 <Col md={{ size: 12 }}>
                                     <Button type="submit" color="primary">
                                         Send Feedback
                                     </Button>
                                 </Col>
-                            </Row>
+                                </Row>
                         </LocalForm>
                     </ModalBody>
                 </Modal>
